@@ -15,14 +15,14 @@ namespace Interview.Services
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            Console.WriteLine("[TWEET READER BACKGROUND SERVICE]: Starting to read Tweet stream!");
+            Console.WriteLine("[TWEET READER BACKGROUND SERVICE]: Starting to read Tweet stream...");
 
             _tweetReaderService.ReadStream();
 
             while (!stoppingToken.IsCancellationRequested)
             {
                 await Task.Run(() => {
-                   // Console.WriteLine("[TWEET READER BACKGROUND SERVICE]: Reading Tweet stream... ");
+                   Console.WriteLine("[TWEET READER BACKGROUND SERVICE]: Reading Tweet stream... ");
                 });
             }
 
