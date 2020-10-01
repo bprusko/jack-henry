@@ -8,7 +8,7 @@ I built this project in .NET Core 3.1.
 
 One .NET Background Service starts reading the stream, and another Background Service processes the statistics, which are available at http://localhost:5000/api/v1/tweets/statistics.
 
- When a Tweet comes in, I update aggregate lists for emoji, hashtags, and URLs. I chose this approach so I didn't need to process the entire list of all Tweets received each time I calculate each statistic outlined below.
+ When a Tweet comes in, I update aggregate lists for emoji, hashtags, and URLs in parallel. I chose this approach so I didn't need to process the entire list of all Tweets received each time I calculate each statistic outlined below.
 
 ### Statistics
 

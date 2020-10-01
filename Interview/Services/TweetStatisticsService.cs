@@ -73,10 +73,20 @@ namespace Interview.Services
 
         public void AddTweet(Tweet tweet)
         {
-            Tweets.Add(tweet);
-            UpdateEmojiLists(tweet);
-            UpdateHashtags(tweet);
-            UpdateUrlLists(tweet);
+            Parallel.Invoke(
+                () => {
+                    Tweets.Add(tweet);
+                },
+                () => {
+                    UpdateEmojiLists(tweet);
+                },
+                () => {
+                    UpdateHashtags(tweet);
+                },
+                () => {
+                    UpdateUrlLists(tweet);
+                }
+            );
         }
 
         private void UpdateEmojiLists(Tweet tweet)
